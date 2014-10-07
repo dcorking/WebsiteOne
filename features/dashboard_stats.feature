@@ -14,9 +14,9 @@ Feature: Display Statistics
       | title     | description | status   |
       | Project 1 | -           | active   |
       | Project 2 | -           | active   |
+      | Project 3 | -           | active   |
       | Project 4 | -           | active   |
-      | Project 5 | -           | active   |
-      | Project 6 | -           | inactive |
+      | Project 5 | -           | inactive |
       | Project 6 | -           | inactive |
 
     And the following users exist
@@ -45,14 +45,24 @@ Feature: Display Statistics
 
   Scenario: User signs up and then visits the statistics page
     Given I sign up with valid user data
+    And I visit "/dashboard"
+    Then I should see "4 AgileVentures Members"
 
   Scenario: User creates a project and then visits the statistics page
     Given I am logged in
     And I create a project titled "Whatever project"
+    And I visit "/dashboard"
+    Then I should see "5 Active Projects"
 
   Scenario: User creates a document and then visits the statistics page
     Given I am logged in
+    And I create a document titled "Plans for world domination"
+    And I visit "/dashboard"
+    Then I should see "3 Documents Created"
 
   Scenario: User creates an Article and then visits the statistics page
     Given I am logged in
+    And I create an article titled "One weird tip for a flat belly"
+    And I visit "/dashboard"
+    Then I should see "4 Articles Published"
 
