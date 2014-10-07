@@ -13,9 +13,9 @@ module Statistics
       when :documents then
         stats[:count] = Document.count
       when :pairing_minutes then
-        stats[:count] = EventInstance.where(category: "PairProgramming").map(&:duration).sum
+        stats[:minutes] = ((EventInstance.where('lower(category) = ?', 'pairprogramming').map(&:duration).sum)/60).ceil.to_int
       when :scrum_minutes then
-        stats[:count] = EventInstance.where(category: "Scrum").map(&:duration).sum
+        stats[:count] = ((EventInstance.where('lower(category) = ?', 'scrum').map(&:duration).sum)/60).ceil.to_int
       end
     end
   end
