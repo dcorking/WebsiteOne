@@ -29,6 +29,19 @@ Feature: Display Statistics
       | Document 1 | Project 1 |
       | Document 2 | Project 2 |
 
+    And following hangouts exist:
+      | created_at | updated_at | title       | category        |
+      | 8:15       | 8:30       | WebsiteOne  | Scrum           |
+      | 10:15      | 11:45      | WebsiteOne  | Scrum           |
+      | 11:15      | 11:45      | WebsiteOne  | Scrum           |
+      | 9:10       | 9:40       | Autograders | PairProgramming |
+      | 11:10      | 12:10      | Autograders | PairProgramming |
+      | 12:00      | 12:30      | Autograders | PairProgramming |
+
+    #2h 15min Scrums
+    #2h PP
+
+
   Scenario: User visits the statistics page
     Given I am on the "home" page
     Then I should see link "Dashboard"
@@ -65,4 +78,11 @@ Feature: Display Statistics
     And I create an article titled "One weird tip for a flat belly"
     And I visit "/dashboard"
     Then I should see "4 Articles Published"
+
+  Scenario: User host a scrum meeting and then visits the statistics page
+    Given I am logged in
+    And I host a scrum meeting for "30" minutes
+    And I visit "/dashboard"
+    Then I should see "165 Minutes"
+
 

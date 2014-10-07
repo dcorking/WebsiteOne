@@ -28,3 +28,10 @@ And(/^I create an article titled "([^"]*)"$/) do |title|
     And I click the "Create" button
   }
 end
+
+And(/^I host a ([^"]*) meeting for "([^"]*)" minutes$/) do |category, duration|
+  updated_at = DateTime.now.utc
+  created_at = duration.to_i.minutes.ago.utc
+  EventInstance.create!(title: 'Event', category: category.titleize, updated_at: updated_at, created_at: created_at)
+  binding.pry
+end
