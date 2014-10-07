@@ -79,10 +79,14 @@ Feature: Display Statistics
     And I visit "/dashboard"
     Then I should see "4 Articles Published"
 
-  Scenario: User host a scrum meeting and then visits the statistics page
+  Scenario: User host a scrum hangout and then visits the statistics page
     Given I am logged in
-    And I host a scrum meeting for "30" minutes
+    And I host a scrum hangout for "30" minutes
     And I visit "/dashboard"
     Then I should see "165 Minutes"
 
-
+  Scenario: User host a pair programming hangout and then visits the statistics page
+    Given I am logged in
+    And I host a scrum hangout for "10" minutes
+    And I visit "/dashboard"
+    Then I should see "130 Minutes"
