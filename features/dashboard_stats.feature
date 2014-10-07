@@ -29,7 +29,7 @@ Feature: Display Statistics
       | Document 1 | Project 1 |
       | Document 2 | Project 2 |
 
-  Scenario:
+  Scenario: User visits the statistics page
     Given I am on the "home" page
     Then I should see link "Dashboard"
     When I click "Dashboard"
@@ -41,3 +41,18 @@ Feature: Display Statistics
     And I should see "4 Active Projects"
     And I should see "3 AgileVentures Members"
     And I should see "2 Documents Created"
+
+
+  Scenario: User signs up and then visits the statistics page
+    Given I sign up with valid user data
+
+  Scenario: User creates a project and then visits the statistics page
+    Given I am logged in
+    And I create a project titled "Whatever project"
+
+  Scenario: User creates a document and then visits the statistics page
+    Given I am logged in
+
+  Scenario: User creates an Article and then visits the statistics page
+    Given I am logged in
+
