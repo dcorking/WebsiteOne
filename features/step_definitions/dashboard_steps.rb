@@ -32,5 +32,5 @@ end
 And(/^I host a ([^"]*) hangout for "([^"]*)" minutes$/) do |category, duration|
   update_time = DateTime.now.utc
   creation_time = duration.to_i.minutes.ago.utc
-  EventInstance.create!(title: 'Event', category: category.titleize, updated_at: update_time, created_at: creation_time)
+  FactoryGirl.create(:event_instance, title: 'Event', category: category.titleize, updated_at: update_time, created_at: creation_time)
 end
