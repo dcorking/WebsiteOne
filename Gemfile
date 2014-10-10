@@ -5,6 +5,7 @@ gem 'rails', '4.1.0'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous', branch: 'rails-4.1'
 # End additions
 
+gem 'countries'
 gem 'puma' # Puma web server
 gem 'pg'  # PostgreSQL database support
 gem 'sass-rails', '~> 4.0.0' # Sass stylesheet language
