@@ -6,22 +6,26 @@ describe 'dashboard/index.html.erb', type: :view do
                     projects:{count:5},
                     members:{count:100},
                     documents:{count:40},
-                    pairing_minutes:{count:300},
-                    scrum_minutes:{count:200}})
+                    pairing_minutes:{value:300},
+                    scrum_minutes:{value:200},
+    })
+
+
+    render
+
   end
 
   it 'displays a tab view' do
-    render
     expect(rendered).to have_css('ul#tabs')
   end
 
-  it 'displays statistics correctly' do
-    render
-    expect(rendered).to have_content('10 Articles Published')
-    expect(rendered).to have_content('5 Active Projects')
-    expect(rendered).to have_content('100 AgileVentures Members')
-    expect(rendered).to have_content('40 Documents Created')
-    expect(rendered).to have_content('300 Pair Programming Minutes')
-    expect(rendered).to have_content('200 Scrum Minutes')
+  describe 'displays statistics: ' do
+    it {expect(rendered).to have_content('10 Articles Published')}
+    it {expect(rendered).to have_content('5 Active Projects')}
+    it {expect(rendered).to have_content('100 AgileVentures Members')}
+    it {expect(rendered).to have_content('40 Documents Created')}
+    it {expect(rendered).to have_text('300 Pair Programming Minutes')}
+    it {expect(rendered).to have_content('200 Scrum Minutes')}
   end
+
 end

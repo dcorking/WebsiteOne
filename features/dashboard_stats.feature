@@ -83,10 +83,10 @@ Feature: Display Statistics
     Given I am logged in
     And I host a scrum hangout for "30" minutes
     And I visit "/dashboard"
-    Then I should see "165 Minutes"
+    Then I should see "165 Scrum Minutes"
 
   Scenario: User host a pair programming hangout and then visits the statistics page
     Given I am logged in
-    And I host a scrum hangout for "10" minutes
+    And I host a pairprogramming hangout for "10" minutes
     And I visit "/dashboard"
-    Then I should see "130 Minutes"
+    Then I should see "130 Pair Programming Minutes"

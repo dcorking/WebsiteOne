@@ -17,9 +17,9 @@
 
         <p><%= @stats[:documents][:count] %> Documents Created</p>
 
-        <p><%= @stats[:pairing_minutes][:count] %> Pair Programming Minutes</p>
+        <p><%= @stats[:pairing_minutes][:value] %> Pair Programming Minutes</p>
 
-        <p><%= @stats[:scrum_minutes][:count] %> Scrum Minutes</p>
+        <p><%= @stats[:scrum_minutes][:value] %> Scrum Minutes</p>
       </div>
     </div>
     <div class="tab-pane" id="activity-feed">
@@ -29,6 +29,7 @@
       <div id="feed">
         <% if @activities %>
             <% @activities.each do |activity| %>
+                <% binding.pry %>
                 <div class="activity">
                   <%= render_activity activity %>
                 </div>
