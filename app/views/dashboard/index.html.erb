@@ -29,7 +29,6 @@
       <div id="feed">
         <% if @activities %>
             <% @activities.each do |activity| %>
-                <% binding.pry %>
                 <div class="activity">
                   <%= render_activity activity %>
                 </div>
