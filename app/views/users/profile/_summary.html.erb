@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-6 col-xs-12" style="padding: 0">
   <%= presenter.gravatar_image(size: 200,
-                               class: "img-rounded media-object pull-left") %>
+                               class: 'img-rounded media-object pull-left') %>
 </div>
 
 <div class="col-md-12 col-sm-6 col-xs-12 user-summary" style="padding: 0">
@@ -9,8 +9,8 @@
     <% if presenter.has_title? %>
       <li><%= presenter.title_list %></li>
     <% end %>
-    <% if presenter.country? %>
-      <li><i class="fa fa-globe fa-lg"></i> <%= presenter.country %></li>
+    <% if presenter.country_name? %>
+      <li><i class="fa fa-globe fa-lg"></i> <%= presenter.country_name %></li>
     <% end %>
     <% if presenter.latitude? && presenter.longitude? %>
       <li><i class="fa fa-clock-o fa-lg"></i> <%= presenter.timezone %></li>

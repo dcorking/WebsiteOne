@@ -115,8 +115,6 @@ GEM
     compass-rails (1.1.7)
       compass (>= 0.12.2)
       sprockets (<= 2.11.0)
-    countries (0.9.3)
-      currencies (~> 0.4.2)
     coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
@@ -137,7 +135,6 @@ GEM
       mime-types (~> 1.16)
       nokogiri (~> 1.5)
       rails (>= 3, < 5)
-    currencies (0.4.2)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -467,7 +464,6 @@ DEPENDENCIES
   coffee-rails
   colored
   compass-rails
-  countries
   coveralls
   cucumber-rails
   database_cleaner
