@@ -126,14 +126,14 @@ describe User, :type => :model do
       expect(subject.latitude).to eq 57.9333
       expect(subject.longitude).to eq 12.5167
       expect(subject.city).to eq 'Alingsås'
-      expect(subject.country).to eq 'Sweden'
+      expect(subject.country).to eq 'SE'
     end
 
     it 'should change location if ip changes' do
       subject.save
       subject.update_attributes last_sign_in_ip: '50.78.167.161'
       expect(subject.city).to eq 'Seattle'
-      expect(subject.country).to eq 'United States'
+      expect(subject.country).to eq 'US'
     end
 
   end
