@@ -28,4 +28,21 @@ describe 'dashboard/index.html.erb', type: :view do
     it {expect(rendered).to have_content('200 Scrum Minutes')}
   end
 
+  describe 'populate and render map of users' do
+
+    before(:each) do
+      @users = []
+      (0..19).each do
+        get_country
+        @users << FactoryGirl.build(:user, country_name: @country[:country_name], country_code: @country[:country_code])
+      end
+      render
+    end
+
+    it 'should assign built users to @users' do
+      expect(@users.count).to eq 20
+    end
+
+  end
+
 end
