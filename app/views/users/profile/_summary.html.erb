@@ -32,6 +32,10 @@
       <li><i class="fa fa-envelope fa-lg"></i> <%= presenter.email_link %></li>
     <% end %>
 
+    <% if @user.online? & presenter.status? %>
+        <li><span class="glyphicon glyphicon-comment"> </span> "<%= presenter.status %>" </li>
+    <% end %>
+
     <% if presenter.display_hire_me %>
       <li>
         <%= link_to 'Hire me', user_path(presenter.user),
@@ -41,11 +45,18 @@
     <% end %>
 
     <% if presenter.object.eql?(current_user) %>
-      <li>
-        <%= link_to 'Edit', edit_user_registration_path,
-          class: 'user-profile-btn',
-          type: 'button' %>
-      </li>
+        <li>
+          <%= link_to 'Edit', edit_user_registration_path,
+                      class: 'user-profile-btn',
+                      type: 'button' %>
+        </li>
+        <li>
+          <p><%= link_to 'Set status', '#',
+                         data: {toggle: 'modal',
+                                target: '#myModal'},
+                         class: 'user-profile-btn',
+                         type: 'button' %></p>
+        </li>
     <% end %>
   </ul>
 </div>
