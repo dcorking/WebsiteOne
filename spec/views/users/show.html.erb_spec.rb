@@ -9,7 +9,7 @@ describe 'users/show.html.erb' do
         mock_model(Project, friendly_id: 'title-2', title: 'Title 2'),
         mock_model(Project, friendly_id: 'title-3', title: 'Title 3')
     ]
-    @user = FactoryGirl.build(:user,
+    @user = FactoryGirl.create(:user,
                               first_name: 'Eric',
                               last_name: 'Els',
                               email: 'eric@somemail.se',
