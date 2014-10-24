@@ -1,3 +1,7 @@
+Then(/^I should see a map$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
 And(/^I create a project titled "([^"]*)"$/) do |title|
   steps %Q{
     Given I am on the "projects" page

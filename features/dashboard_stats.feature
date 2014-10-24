@@ -61,6 +61,12 @@ Feature: Display Statistics
     And I visit "/dashboard"
     Then I should see "4 AgileVentures Members"
 
+  @javascript
+  Scenario: User visits the statistics page and clicks 'Users'
+    Given I visit "/dashboard"
+    And I click the very stylish "Users" button
+    Then I should see a map
+
   Scenario: User creates a project and then visits the statistics page
     Given I am logged in
     And I create a project titled "Whatever project"
@@ -90,3 +96,4 @@ Feature: Display Statistics
     And I host a pairprogramming hangout for "10" minutes
     And I visit "/dashboard"
     Then I should see "130 Pair Programming Minutes"
+
