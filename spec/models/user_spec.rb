@@ -6,6 +6,10 @@ describe User, :type => :model do
 
   subject { build_stubbed :user }
 
+  it 'should have valid factory' do
+   expect(FactoryGirl.create(:user)).to be_valid
+  end
+
   it { is_expected.to have_many(:status) }
 
   it { is_expected.to accept_nested_attributes_for :status}
@@ -132,7 +136,8 @@ describe User, :type => :model do
       expect(subject.latitude).to_not eq nil
       expect(subject.longitude).to_not eq nil
       expect(subject.city).to_not eq nil
-      expect(subject.country).to_not eq nil
+      expect(subject.country_name).to_not eq nil
+      expect(subject.country_code).to_not eq nil
     end
 
     it 'should set user location' do
@@ -140,14 +145,16 @@ describe User, :type => :model do
       expect(subject.latitude).to eq 57.9333
       expect(subject.longitude).to eq 12.5167
       expect(subject.city).to eq 'Alingsås'
-      expect(subject.country).to eq 'Sweden'
+      expect(subject.country_name).to eq 'Sweden'
+      expect(subject.country_code).to eq 'SE'
     end
 
     it 'should change location if ip changes' do
       subject.save
       subject.update_attributes last_sign_in_ip: '50.78.167.161'
       expect(subject.city).to eq 'Seattle'
-      expect(subject.country).to eq 'United States'
+      expect(subject.country_name).to eq 'United States'
+      expect(subject.country_code).to eq 'US'
     end
 
   end

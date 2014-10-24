@@ -29,13 +29,14 @@ module Helpers
   end
 
   def create_visitor
-    @visitor ||= { :first_name => 'Anders',
-                   :last_name => 'Persson',
-                   :email => 'example@example.com',
-                   :password => 'changemesomeday',
-                   :password_confirmation => 'changemesomeday',
-                   :slug => 'slug-ma',
-                   :country => 'Sweden'}
+    @visitor ||= { first_name: 'Anders',
+                   last_name: 'Persson',
+                   email: 'example@example.com',
+                   password: 'changemesomeday',
+                   password_confirmation: 'changemesomeday',
+                   slug: 'slug-ma',
+                   country_name: 'Sweden',
+                   country_code: 'SE'}
   end
 
   def create_test_user(options = {})

@@ -4,13 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  geocoded_by :last_sign_in_ip do |user, res|
-    if geo = res.first
+  geocoded_by :last_sign_in_ip do |user, results|
+    if geo = results.first
       user.latitude = geo.data['latitude']
       user.longitude = geo.data['longitude']
       user.city = geo.data['city']
       user.region = geo.data['region_name']
-      user.country = geo.data['country_name']
+      user.country_name = geo.data['country_name']
+      user.country_code = geo.data['country_code']
     end
   end
 

@@ -92,13 +92,9 @@ describe 'users/show.html.erb' do
     expect(rendered).to have_content(@user.status.last[:status])
   end
 
-  it "prompts user to update their status" do
+  it 'prompts user to update their status' do
     render
-    # binding.pry
-    # within "div.modal-footer" do |footer|
-      # expect(rendered).to have_selector("input[type='submit'][value='Update status'")
-    expect(rendered).to have_selector("input", type: 'submit', value: 'Update status')
-    # end
+    expect(rendered).to have_selector('input', type: 'submit', value: 'Update status')
   end
 
   describe 'geolocation' do
@@ -108,10 +104,10 @@ describe 'users/show.html.erb' do
     end
 
     it 'shows user country when known' do
-      @user.country = 'Mozambique'
+      @user.country_name = 'Mozambique'
       render
       expect(rendered).to have_selector 'i[class="fa fa-globe fa-lg"]'
-      expect(rendered).to have_content @user.country
+      expect(rendered).to have_content @user.country_name
     end
 
     it 'does not show clock icon when user timezone cannot be determined' do

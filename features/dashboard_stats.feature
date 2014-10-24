@@ -14,9 +14,9 @@ Feature: Display Statistics
       | title     | description | status   |
       | Project 1 | -           | active   |
       | Project 2 | -           | active   |
+      | Project 3 | -           | active   |
       | Project 4 | -           | active   |
-      | Project 5 | -           | active   |
-      | Project 6 | -           | inactive |
+      | Project 5 | -           | inactive |
       | Project 6 | -           | inactive |
 
     And the following users exist
@@ -29,7 +29,20 @@ Feature: Display Statistics
       | Document 1 | Project 1 |
       | Document 2 | Project 2 |
 
-  Scenario:
+    And following hangouts exist:
+      | created_at | updated_at | title       | category        |
+      | 8:15       | 8:30       | WebsiteOne  | Scrum           |
+      | 10:15      | 11:45      | WebsiteOne  | Scrum           |
+      | 11:15      | 11:45      | WebsiteOne  | Scrum           |
+      | 9:10       | 9:40       | Autograders | PairProgramming |
+      | 11:10      | 12:10      | Autograders | PairProgramming |
+      | 12:00      | 12:30      | Autograders | PairProgramming |
+
+    #2h 15min Scrums
+    #2h PP
+
+
+  Scenario: User visits the statistics page
     Given I am on the "home" page
     Then I should see link "Dashboard"
     When I click "Dashboard"
@@ -41,3 +54,46 @@ Feature: Display Statistics
     And I should see "4 Active Projects"
     And I should see "3 AgileVentures Members"
     And I should see "2 Documents Created"
+
+
+  Scenario: User signs up and then visits the statistics page
+    Given I sign up with valid user data
+    And I visit "/dashboard"
+    Then I should see "4 AgileVentures Members"
+
+  @javascript
+  Scenario: User visits the statistics page and clicks 'Users'
+    Given I visit "/dashboard"
+    And I click the very stylish "Users" button
+    Then I should see a map
+
+  Scenario: User creates a project and then visits the statistics page
+    Given I am logged in
+    And I create a project titled "Whatever project"
+    And I visit "/dashboard"
+    Then I should see "5 Active Projects"
+
+  Scenario: User creates a document and then visits the statistics page
+    Given I am logged in
+    And I create a document titled "Plans for world domination"
+    And I visit "/dashboard"
+    Then I should see "3 Documents Created"
+
+  Scenario: User creates an Article and then visits the statistics page
+    Given I am logged in
+    And I create an article titled "One weird tip for a flat belly"
+    And I visit "/dashboard"
+    Then I should see "4 Articles Published"
+
+  Scenario: User host a scrum hangout and then visits the statistics page
+    Given I am logged in
+    And I host a scrum hangout for "30" minutes
+    And I visit "/dashboard"
+    Then I should see "165 Scrum Minutes"
+
+  Scenario: User host a pair programming hangout and then visits the statistics page
+    Given I am logged in
+    And I host a pairprogramming hangout for "10" minutes
+    And I visit "/dashboard"
+    Then I should see "130 Pair Programming Minutes"
+
