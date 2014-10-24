@@ -62,9 +62,9 @@ Feature: Display Statistics
     Then I should see "4 AgileVentures Members"
 
   @javascript
-  Scenario: User visits the statistics page and clicks 'Users'
+  Scenario: User visits the statistics page and clicks 'members'
     Given I visit "/dashboard"
-    And I click the very stylish "Users" button
+    And I click the very stylish "members" button
     Then I should see a map
 
   Scenario: User creates a project and then visits the statistics page

@@ -20,7 +20,12 @@
         <p><%= @stats[:pairing_minutes][:value] %> Pair Programming Minutes</p>
 
         <p><%= @stats[:scrum_minutes][:value] %> Scrum Minutes</p>
+      
+        <%= link_to "#{@stats[:members][:count]} members", "#", title: "members" %>
+
       </div>
+
+
     </div>
     <div class="tab-pane" id="activity-feed">
 
