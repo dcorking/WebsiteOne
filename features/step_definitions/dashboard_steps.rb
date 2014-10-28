@@ -1,5 +1,5 @@
 Then(/^I should see a map$/) do
-  pending # express the regexp above with the code you wish you had
+  expect
 end
 
 And(/^I create a project titled "([^"]*)"$/) do |title|

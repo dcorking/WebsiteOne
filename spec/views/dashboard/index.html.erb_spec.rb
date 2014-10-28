@@ -20,12 +20,12 @@ describe 'dashboard/index.html.erb', type: :view do
   end
 
   describe 'displays statistics: ' do
-    it {expect(rendered).to have_content('10 Articles Published')}
-    it {expect(rendered).to have_content('5 Active Projects')}
-    it {expect(rendered).to have_content('100 AgileVentures Members')}
-    it {expect(rendered).to have_content('40 Documents Created')}
-    it {expect(rendered).to have_text('300 Pair Programming Minutes')}
-    it {expect(rendered).to have_content('200 Scrum Minutes')}
+    it {expect(rendered).to have_link('10 Articles Published')}
+    it {expect(rendered).to have_link('5 Active Projects')}
+    it {expect(rendered).to have_link('100 AgileVentures Members')}
+    it {expect(rendered).to have_link('40 Documents Created')}
+    it {expect(rendered).to have_link('300 Pair Programming Minutes')}
+    it {expect(rendered).to have_link('200 Scrum Minutes')}
   end
 
   describe 'populate and render map of users' do
