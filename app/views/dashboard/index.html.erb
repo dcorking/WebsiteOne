@@ -51,13 +51,16 @@
 
   </div>
 </div>
+
 <script src="http://code.highcharts.com/maps/highmaps.js"></script>
 <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
 <script>$(function () {
 
     // Prepare demo data
-    var data = [
+    var data = 
+
+    [
         {
             "hc-key": "dz",
             "value": 0
@@ -679,7 +682,7 @@
             "value": 154
         },
         {
-            "hc-key": "us",
+            "hc-key": "US",
             "value": 155
         },
         {
@@ -901,4 +904,16 @@
 });
 </script>
 
-<div id="container"></div>
+
+
+<%= content_tag :div, id: 'container', data: User.group(:country_code).count do %>
+
+<% end %>
+
+
+<script> 
+$(function () {
+
+    // Prepare demo data
+    var data = html('<%= User.highchart_data.to_json %>')
+</script>

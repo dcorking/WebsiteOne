@@ -238,4 +238,18 @@ describe User, :type => :model do
       expect(user.online?).to eq false
     end
   end
+
+  describe 'interacting with highcharts' do
+
+    before(:each) do
+      @user1 = FactoryGirl.create(:user, country_code: 'US')
+      @user2 = FactoryGirl.create(:user, country_code: 'BR')
+    end
+
+    it 'converts user data into an array for highcharts' do
+      expect(User.highchart_data). to eq [{"hc-key" => "br", "value" => 1
+        }, {"hc-key" => "us", "value" => 1}]
+    end
+
+  end
 end

@@ -103,6 +103,13 @@ class User < ActiveRecord::Base
     updated_at > 10.minutes.ago
   end
 
+  def self.highchart_data
+    users = User.group(:country_code).count
+    users.inject([]) do |array, (k, v)|
+      array + (k ? [{"hc-key" => k.downcase, "value" => v}] : [])
+    end
+  end
+
   private
 
   def send_slack_invite

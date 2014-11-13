@@ -61,8 +61,6 @@ Feature: Display Statistics
     And I visit "/dashboard"
     Then I should see "4 AgileVentures Members"
 
-# Comment from Brian: not sure how helpful having documents listed in the stats is, how about commit counts/story counts instead?
-
   @javascript
   Scenario: User visits the statistics page and clicks 'members'
     Given I visit "/dashboard"
